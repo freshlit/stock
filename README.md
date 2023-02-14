@@ -2,6 +2,8 @@
 
 This is my first Ruby on Rails Server.
 
+Let's Diggin!
+
 
 
 This README would normally document whatever steps are necessary to get the
