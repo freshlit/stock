@@ -1,4 +1,19 @@
 <h1>Stocking</h1>
 <p> Hello! This is my First Rails App </p>
 
-<!--p>Find me in app/views/home/index.html.erb</p>
+<%= form_tag root_path, :method => 'POST' do%>
+    <%= text_field_tag 'ticker', nil, placeholder: "Enter Ticker Symbol", size: 50 %>
+    <%= submit_tag 'Lookup' %>
+<% end %>
+
+<!--% StockQuote::Stock.new(api_key: 'pk_31d2290eac384fa597b270b0e49ab050') %-->
+<% stock = StockQuote::Stock.quote("voo") %>
+<%= stock.company_name %>
+<%= stock.latest_price %>
+<% temp = StockQuote::Stock.logo("aapl") %>
+<!--%= temp.inspect %-->
+<!--%= temp.url %-->
+<img src = "<%= temp.url%>">
+<!--p>Find me in app/views/home/index.html.erb</p-->
+
+

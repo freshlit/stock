@@ -16,6 +16,11 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
+gem "jquery-rails"
+gem 'stock_quote', '~> 3.0'
+
+#added by Heejun
+gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
