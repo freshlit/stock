@@ -6,17 +6,14 @@
     <%= submit_tag 'Lookup' %>
 <% end %>
 
-    <%= @stock = StockQuote::Stock.quote(params[:ticker]) %>
-    <%= @stock.company_name %>
-    
+
 <% if @stock %>
-    <%= @stock = StockQuote::Stock.quote(params[:ticker]) %>
-    <%= @stock.company_name %>
-    <%= @stock.latest_price %>
-    <img src = "<%= @stock.url%>">
-    <%= puts "HI" %>
-<% else %>
-    <%= puts "NOO" %>
+    <% puts "========== Index, Value = " + @stock.company_name + "==========" %>
+    </br>
+    ========== Index, Value = <%= @stock.company_name %>
+    ========== Index, Price = <%= @stock.latest_price %>
+<% elsif @nothing %>
+    <%= @nothing %>
+    <%= puts "========== Index, Params is NULL ==========" %>
 <% end %>
 
-      
