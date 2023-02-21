@@ -3,17 +3,22 @@
 
 <%= form_tag root_path, :method => 'POST' do %>
     <%= text_field_tag 'ticker', nil, placeholder: "Enter Ticker Symbol", size: 50 %>
-    <%= submit_tag 'Lookup' %>
+    <%= submit_tag 'Lookup', data: { turbo: false } %>
 <% end %>
-
 
 <% if @stock %>
     <% puts "========== Index, Value = " + @stock.company_name + "==========" %>
-    </br>
-    ========== Index, Value = <%= @stock.company_name %>
-    ========== Index, Price = <%= @stock.latest_price %>
+    <img src = "<%= @url%>"> </br>
+    Name  : <%= @stock.company_name %> </br>
+    Price : <%= @stock.latest_price %>
 <% elsif @nothing %>
+    <% puts "========== Index, Params is NULL ==========\n" + @nothing %>
     <%= @nothing %>
-    <%= puts "========== Index, Params is NULL ==========" %>
+<% else %>
+    <% puts "========== Index, no @stock ==========" %>
 <% end %>
 
+<% if @error %>
+    <% puts "========== Index, error ==========\n" + @error %>
+    <%= @error %>
+<% end %>
