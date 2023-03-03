@@ -17,11 +17,13 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "jquery-rails"
-gem 'stock_quote', '~> 3.0'
-gem 'devise', '~> 4.9'
 
 #added by Heejun
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
+gem 'stock_quote', '~> 3.0'
+gem 'devise', '~> 4.9'
+gem 'rails_db'
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"

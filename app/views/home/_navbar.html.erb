@@ -21,10 +21,17 @@
             <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link text-light" %>
           </li>
           
+          <li class="nav-item">
+            <%= link_to "Show Stocks", stocks_path, class: "nav-link text-light" %>
+          </li>
+          
+          <li class="nav-item">
+            <%= link_to "Add Stocks", new_stock_path, class: "nav-link text-light" %>
+          </li>
+          
           <li class="nav-item" >
-            <%= link_to "LogOut", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "nav-link text-light" %>
-            <%# :data => { :no_turbolink => true }, %>
-            <%# <%= button_to "LogOut", destroy_user_session_path, method: :delete, class: "nav-link text-light" %> %>
+            <%#= link_to "LogOut", destroy_user_session_path, :method => :delete, :data => { :no_turbolink => true },class: "nav-link text-light"%>
+            <%= button_to "LogOut", destroy_user_session_path, method: :delete, class: "nav-link text-light" %>
           </li>
 
         <% else %>
