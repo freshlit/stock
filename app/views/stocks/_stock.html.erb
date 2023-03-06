@@ -1,7 +1,27 @@
 <div id="<%= dom_id stock %>">
-  <p>
-    <strong>Ticker:</strong>
-    <%= stock.ticker %>
-  </p>
+<table class="table">
+  <tbody>
+    <tr>
+      <% if stock.ticker == '' %>%
+        <% @nothing = "Nothing" %>
+        <% puts "========== stock.html, " + @nothing  %>
+      <% elsif (stock.ticker) %>
+        <% begin %>
+          <% @ticker = StockQuote::Stock.quote(stock.ticker) %>
+          <td><%= @ticker.company_name %></td>
+          <td><%= @ticker.symbol %></td>
+          <td><%= number_with_precision( @ticker.latest_price, :pricision => 2, :delimiter => ',' )%></td>
+          <td><p><%= link_to "Show this stock", stock %></p></td>
 
+          <% puts "========== stock.html, found = " + @ticker.company_name + "==========" %>
+        <% rescue  %>
+          <% @error = "Error"   %>
+          <% puts "========== stock.html, " + @error %>
+        <% end %>
+      <% else %>
+        <% puts "========== stock.html,,,," %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
 </div>

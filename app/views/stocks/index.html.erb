@@ -1,19 +1,48 @@
 <h1>Stocks</h1>
 
 <div id="stocks">
+<table class="table">
+  <thead>
+    <tr>
+      <th> company </th>
+      <th> Ticker </th>
+      <th> Current Price </th>
+      <th> Link </th>
+  </thead>
+  </table>
   <% @stocks.each do |stock| %>
     <% if stock.user_id == current_user.id %>
-      <%= render stock %>
-      <p>
-        <%= link_to "Show this stock", stock %>
-      </p>
+
+      <% if stock.ticker == '' %>%
+        <% @nothing = "Nothing" %>
+        <% puts "========== Controller, " + @nothing  %>
+        
+      <% elsif (stock.ticker) %>
+        <% begin %>
+          <% @ticker = StockQuote::Stock.quote(stock.ticker) %>
+       
+          <%= render stock %>
+
+          <% puts "========== Controller, found = " + @ticker.company_name + "==========" %>
+        <% rescue  %>
+          <% @error = "Error"   %>
+          <% puts "========== Controller, " + @error %>
+        <% end %>
+      <% else %>
+        <% puts "========== Controller,,,," %>
+      <% end %>
+
     <% end %>
   <% end %>
 </div>
 
 <%= link_to "New stock", new_stock_path %>
 
+
 </br></br>
-<% @stocks.each do |te|%>
-  <%= te.ticker %>
+
+<%@num = 1%>
+  <% @stocks.each do |te|%>
+     <%= @num %> <%= te.ticker %> <%= te.user_id %> </br>
+     <% @num += 1 %>
 <% end %>
